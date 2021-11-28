@@ -1,0 +1,10 @@
+---
+ - hosts: localhost
+   tasks:
+    - name: Nginx subpath
+      include_role:
+        name: nginx
+      vars:
+        subpath: waterfowl
+        webroot: "{{ (toast.slice.path, 'html') | path_join }}"
+        location_block_dir: "{{ toast.vars.locations }}"
